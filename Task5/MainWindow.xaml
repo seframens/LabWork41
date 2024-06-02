@@ -1,0 +1,42 @@
+﻿<Window x:Class="Task5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Canvas>
+        <Button Content="Начать" Canvas.Left="354" Canvas.Top="316" Height="39" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="circle"
+                                                          Storyboard.TargetProperty="Fill.GradientStops[1].Color"
+                                                          Duration="0:0:10" 
+                                                          RepeatBehavior="Forever" 
+                                                          AutoReverse="True">
+                                <ColorAnimationUsingKeyFrames.KeyFrames>
+                                    <LinearColorKeyFrame KeyTime="20%" Value="WhiteSmoke"/>
+                                    <LinearColorKeyFrame KeyTime="40%" Value="LightBlue"/>
+                                    <LinearColorKeyFrame KeyTime="60%" Value="Blue"/>
+                                    <LinearColorKeyFrame KeyTime="80%" Value="Pink"/>
+                                    <LinearColorKeyFrame KeyTime="100%" Value="Red"/>
+                                </ColorAnimationUsingKeyFrames.KeyFrames>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Ellipse x:Name="circle" Stroke="Black" Width="200" Height="200" Canvas.Left="304" Canvas.Top="77" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Ellipse.Fill>
+                <RadialGradientBrush RadiusX="1" RadiusY="1">
+                    <GradientStop Color="White" Offset="0.118"/>
+                    <GradientStop Color="#FFE0EC1B" Offset="0.511"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Canvas>
+</Window>
